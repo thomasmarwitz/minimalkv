@@ -1,8 +1,6 @@
 import os
 from typing import NamedTuple
 
-import pytest
-
 from minimalkv import get_store_from_url
 
 
@@ -46,8 +44,6 @@ def test_example_interaction():
     - get()
     - delete()
     """
-    # TODO: Replace w/ testing strategy as done in `test_boto3_store.py`
-
     bucket = user1.get_store_from_config()
 
     new_filename = "some-non-existing-file"
@@ -63,7 +59,6 @@ def test_example_interaction():
     assert new_filename not in bucket.keys()
 
 
-@pytest.mark.xfail(reason="Not implemented yet: Side effects are still present.")
 def test_no_env_side_effects():
     pre_env_state = os.environ.copy()
 
